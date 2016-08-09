@@ -22,7 +22,10 @@ git '/opt/oh-my-zsh/custom/plugins/zsh-syntax-highlighting' do
 end
 
 cookbook_file '/root/.zshrc'
-cookbook_file '/home/vagrant/.zshrc'
+cookbook_file '/home/vagrant/.zshrc' do
+    owner 'vagrant'
+    group 'vagrant'
+end
 
 bash "Set vagrant's shell to zsh" do
   code <<-EOT
