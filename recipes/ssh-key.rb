@@ -1,0 +1,4 @@
+ssh_authorize_key 'semenov.roman@mail.ru' do
+  key 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDJhr484VGSiCJCjNlYGMEILLaSBoDKFRsj1W2rJc9HoNUC1I0t7B3NNMRPbDdzkK+7+bWi2735H1j6SrCG6VKQ/h9LKo1VEo4pSyCbOhDgodp/aFm00adfiu8su30xgkUJrFITWV9o4t2/HtLjlOTtsdoZX+tui+0qIr5AqJ9jvYteCc02zr8OitfFd0o+PGLeFIixLEBIabP+rh4cLnq5qt1ac4oRHEbatTpeJStdqq3kRhUPvQu8+A2StTwppHikGvNaMl3GmGf0UIv3HYFqXozc45PKIsG15REhqx2iwwaxyJhhHWCzQpaypEnHoJ4+V27rfuxk240glsl8h/1f'
+  user 'root'
+end

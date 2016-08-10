@@ -22,14 +22,14 @@ git '/opt/oh-my-zsh/custom/plugins/zsh-syntax-highlighting' do
 end
 
 cookbook_file '/root/.zshrc'
-cookbook_file '/home/vagrant/.zshrc' do
-    owner 'vagrant'
-    group 'vagrant'
-end
+#cookbook_file '/home/vagrant/.zshrc' do
+#    owner 'vagrant'
+#    group 'vagrant'
+#end
 
 bash "Set vagrant's shell to zsh" do
   code <<-EOT
-    chsh -s /bin/zsh vagrant
+    # chsh -s /bin/zsh vagrant
     chsh -s /bin/zsh root
   EOT
   not_if 'test "/bin/zsh" = "$(grep vagrant /etc/passwd | cut -d: -f7)"'
