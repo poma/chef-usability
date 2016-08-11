@@ -21,7 +21,14 @@ git '/opt/oh-my-zsh/custom/plugins/zsh-syntax-highlighting' do
    action :sync
 end
 
-cookbook_file '/root/.zshrc'
+template '/root/.zshrc' do
+  source '.zshrc.erb'
+  variables({
+    :plugins => node['usability']['zsh']['plugins'],
+    :includes => node['usability']['zsh']['includes']
+  })
+end
+#cookbook_file '/root/.zshrc'
 #cookbook_file '/home/vagrant/.zshrc' do
 #    owner 'vagrant'
 #    group 'vagrant'

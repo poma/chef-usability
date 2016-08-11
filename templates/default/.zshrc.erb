@@ -1,5 +1,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/opt/oh-my-zsh
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
 
 # DEFAULT_USER=root
 
@@ -47,7 +49,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(<%= @plugins %>)
 
 # User configuration
 
@@ -74,3 +76,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias la="ls -lAh"
+
+<% @includes.each do |file| %>
+source <%= file %>
+<% end %>
