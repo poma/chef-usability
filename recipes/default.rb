@@ -20,3 +20,11 @@ end
 cookbook_file "/usr/share/ne/syntax/xml.jsf" do
   source "ne.xml.conf"
 end
+
+file "/etc/update-motd.d/10-help-text" do
+    action :delete
+end
+
+file "/etc/update-motd.d/51-cloudguest" do
+    action :delete
+end
