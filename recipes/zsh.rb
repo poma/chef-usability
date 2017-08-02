@@ -21,6 +21,12 @@ git '/opt/oh-my-zsh/custom/plugins/zsh-syntax-highlighting' do
    action :sync
 end
 
+git '/opt/oh-my-zsh/custom/plugins/zsh-completions' do
+   repository "https://github.com/zsh-users/zsh-completions.git"
+   revision 'master'
+   action :sync
+end
+
 template '/root/.zshrc' do
   source '.zshrc.erb'
   variables({
