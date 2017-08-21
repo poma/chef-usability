@@ -34,11 +34,13 @@ template '/root/.zshrc' do
     :includes => node['usability']['zsh']['includes']
   })
 end
-#cookbook_file '/root/.zshrc'
+
 #cookbook_file '/home/vagrant/.zshrc' do
 #    owner 'vagrant'
 #    group 'vagrant'
 #end
+
+cookbook_file "/root/.dircolors"
 
 bash "Set vagrant's shell to zsh" do
   code <<-EOT
