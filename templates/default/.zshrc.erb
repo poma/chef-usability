@@ -79,6 +79,9 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
 alias la="ls -lAh"
 alias artisan="php artisan"
 
+# Hide username prompt
+# prompt_context() { }
+
 <% @includes.each do |file| %>
 source <%= file %>
 <% end %>
