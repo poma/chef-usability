@@ -84,6 +84,7 @@ alias artisan="php artisan"
 # prompt_context() { }
 
 eval "$(dircolors ~/.dircolors)";
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 <% @includes.each do |file| %>
 source <%= file %>
