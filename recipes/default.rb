@@ -3,9 +3,7 @@ include_recipe 'locale'
 
 include_recipe "apt"
 
-node['usability']['packages'].each do |a_package|
-  package a_package
-end
+package node['usability']['packages']
 
 link "/etc/localtime" do
   to "/usr/share/zoneinfo/Europe/Moscow"
