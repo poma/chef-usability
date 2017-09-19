@@ -2,7 +2,7 @@
     "run_list": [
         "recipe[usability]",
         "recipe[usability::zsh]",
-        "recipe[usability::ssh-key]",
+        "recipe[usability::ssh-key]"
     ],
     "attr": {
     
