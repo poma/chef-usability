@@ -9,3 +9,4 @@ recipe "usability", "Some common packages and settings"
 depends 'locale'
 depends 'apt'
 depends 'ssh_authorized_keys'
+depends 'sudo'
