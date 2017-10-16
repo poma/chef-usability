@@ -1,7 +1,5 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/opt/oh-my-zsh
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
-
 
 # DEFAULT_USER=root
 
@@ -49,24 +47,31 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(<%= @plugins %>)
+plugins=(<%= @plugins.join(' ') %>)
 autoload -U compinit && compinit
 
 # User configuration
 
-# export PATH="/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+export PATH="$HOME/.composer/vendor/bin:$HOME/.local/bin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor
 export EDITOR='ne'
 
 # autocomplete color
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
+
+eval "$(dircolors ~/.dircolors)";
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# Hide username prompt
+# prompt_context() { }
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -79,12 +84,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=0"
 alias la="ls -AlFh"
 alias ll="ls -AlFh"
 alias artisan="php artisan"
-
-# Hide username prompt
-# prompt_context() { }
-
-eval "$(dircolors ~/.dircolors)";
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 <% @includes.each do |file| %>
 source <%= file %>

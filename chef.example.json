@@ -5,6 +5,6 @@
         "recipe[usability::ssh-key]"
     ],
     "attr": {
-    
+
     }
 }

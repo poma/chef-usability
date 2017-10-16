@@ -3,7 +3,7 @@ include_recipe 'locale'
 
 include_recipe "apt"
 
-package node['usability']['packages']
+package node['usability']['packages-base'] + node['usability']['packages'] + (node.recipe?('usability::wsl') ? node['usability']['packages-wsl'] : [])
 
 link "/etc/localtime" do
   to "/usr/share/zoneinfo/Europe/Moscow"

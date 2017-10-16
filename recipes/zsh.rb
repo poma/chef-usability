@@ -1,7 +1,6 @@
-include_recipe "apt"
+include_recipe 'apt'
 
-package "zsh"
-package "git"
+package 'zsh'
 
 git '/opt/oh-my-zsh' do
    repository "https://github.com/robbyrussell/oh-my-zsh"
@@ -30,8 +29,8 @@ end
 template '/root/.zshrc' do
   source '.zshrc.erb'
   variables({
-    :plugins => node['usability']['zsh']['plugins'],
-    :includes => node['usability']['zsh']['includes']
+    :plugins => node['usability']['zsh']['plugins-base'] + (node.recipe?('usability::wsl') ? node['usability']['zsh']['plugins-wsl'] : []) + node['usability']['zsh']['plugins'],
+    :includes => node['usability']['zsh']['includes'] + (node.recipe?('usability::wsl') ? ['.zshrc.windows'] : [])
   })
 end
 
@@ -40,7 +39,7 @@ end
 #    group 'vagrant'
 #end
 
-cookbook_file "/root/.dircolors"
+cookbook_file '/root/.dircolors'
 
 bash "Set vagrant's shell to zsh" do
   code <<-EOT
