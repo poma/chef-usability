@@ -30,7 +30,7 @@ template '/root/.zshrc' do
   source '.zshrc.erb'
   variables({
     :plugins => node['usability']['zsh']['plugins-base'] + (node.recipe?('usability::wsl') ? node['usability']['zsh']['plugins-wsl'] : []) + node['usability']['zsh']['plugins'],
-    :includes => node['usability']['zsh']['includes'] + (node.recipe?('usability::wsl') ? ['.zshrc.windows'] : [])
+    :includes => node['usability']['zsh']['includes'] + (node.recipe?('usability::wsl') ? ['$HOME/.zshrc.windows'] : [])
   })
 end
 
