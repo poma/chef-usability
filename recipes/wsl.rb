@@ -20,6 +20,7 @@ end if platform_family?('debian')
 
 # edit sshd.conf / replace with dropbear (apt install dropbear -y && apt remove openssh-server && service dropbear start)
 # ssh key?
+# dpkg-reconfigure openssh-server
 
 cookbook_file '/root/.zshrc.windows'
 
