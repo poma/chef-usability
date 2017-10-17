@@ -48,6 +48,7 @@ apt_repository 'node' do
   uri 'https://deb.nodesource.com/node_8.x'
   distribution 'xenial'
   components ['main']
+  key 'https://deb.nodesource.com/gpgkey/nodesource.gpg.key'
 end
 
 package node['usability']['packages-wsl']
