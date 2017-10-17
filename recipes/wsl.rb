@@ -22,3 +22,35 @@ end if platform_family?('debian')
 # ssh key?
 
 cookbook_file '/root/.zshrc.windows'
+
+apt_repository 'microsoft' do
+  uri 'https://packages.microsoft.com/ubuntu/16.04/prod'
+  distribution 'xenial'
+  components ['main']
+  arch 'amd64'
+  key 'https://packages.microsoft.com/keys/microsoft.asc'
+end
+
+apt_repository 'google' do
+  uri 'http://packages.cloud.google.com/apt'
+  distribution 'cloud-sdk-xenial'
+  components ['main']
+  key 'https://packages.cloud.google.com/apt/doc/apt-key.gpg'
+end
+
+apt_repository 'php' do
+  uri 'ppa:ondrej/php'
+  distribution 'xenial'
+  components ['main']
+end
+
+apt_repository 'node' do
+  uri 'https://deb.nodesource.com/node_8.x'
+  distribution 'xenial'
+  components ['main']
+end
+
+package node['usability']['packages-wsl']
+
+# install vagrant plugins vagrant-hostmanager vagrant-omnibus vagrant-berkshelf
+# pip install awscli --upgrade --user

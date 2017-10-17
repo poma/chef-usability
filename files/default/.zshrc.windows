@@ -6,3 +6,5 @@ prompt_context() { }
 
 alias nuget="NuGet.exe"
 alias subl="subl.exe"
+alias gc="gcloud"
+alias gs="gsutil"
